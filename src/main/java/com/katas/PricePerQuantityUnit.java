@@ -11,13 +11,12 @@
  *----------------------------------------------------------------------------*/
 package com.katas;
 
-@Deprecated
-public class PricePerQuantity implements PriceSchema {
+public class PricePerQuantityUnit implements PriceSchema {
 
-    private final Quantity quantity;
+private final Quantity quantity;
     private final double price;
 
-    public PricePerQuantity(Quantity quantity, double price) {
+    public PricePerQuantityUnit(Quantity quantity, double price) {
         this.quantity = quantity;
         this.price = price;
     }

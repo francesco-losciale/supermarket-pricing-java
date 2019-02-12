@@ -10,7 +10,7 @@ public class SupermarketPricingTest extends TestCase {
     public void testSpecialPricingThreeForDollar() throws Exception {
         // three for a dollar, what is the price of 4 or 5?
         final double normalItemPrice = 15.99;
-        final Price price = new Price(new Item(normalItemPrice), new PricePerQuantity(3, 1.0));
+        final Price price = new Price(new Item(normalItemPrice), new PricePerQuantityUnit(new Quantity(3, QuantityUnit.GRAM), 1.0));
         assertEquals(price.calculate(4), 1 + normalItemPrice);
         assertEquals(price.calculate(5), 1 + normalItemPrice * 2);
         assertEquals(price.calculate(6), 2D);
@@ -47,7 +47,13 @@ public class SupermarketPricingTest extends TestCase {
         // 20 euro per Kilo, how much 150 grams?
         // TODO create a new PricePerQuantityWithUnit which uses the class Quantity above instead of double quantity
         // TODO can you abstract refactoring the PricePerQuantity class?
-        assertEquals();
+        final double pricePerKilo = 15.99;
+        final Price price = new Price(new Item(pricePerKilo), new PricePerQuantityUnit(
+                new Quantity(1, QuantityUnit.KILO),
+                pricePerKilo)
+        );
+        assertEquals(price.calculate(0.400), pricePerKilo * 0.400);
+        assertEquals(price.calculate(0.413), pricePerKilo * 0.413);
     }
 
     private double quantity(int quantity, QuantityUnit quantityUnit) {

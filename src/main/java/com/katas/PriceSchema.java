@@ -12,7 +12,7 @@
 package com.katas;
 
 public interface PriceSchema {
-    int getQuantity();
+    Quantity getQuantity();
 
     double getPrice();
 }

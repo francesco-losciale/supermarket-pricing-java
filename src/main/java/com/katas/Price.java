@@ -22,16 +22,16 @@ public class Price {
     }
 
     public Price(Item item, QuantitySchema quantitySchema) {
-        this(item, new PricePerQuantity(
-                quantitySchema.getQuantity() + quantitySchema.getFreeQuantity(),
+        this(item, new PricePerQuantityUnit(
+                new Quantity(quantitySchema.getQuantity() + quantitySchema.getFreeQuantity(), QuantityUnit.GRAM),
                 item.getPrice() * quantitySchema.getQuantity()
                 )
         );
     }
 
-    public double calculate(int purchaseQuantity) {
-        final int quantityNormalPrice = purchaseQuantity % priceSchema.getQuantity();
-        final int quantityDiscountedPrice = (purchaseQuantity - quantityNormalPrice) / priceSchema.getQuantity();
+    public double calculate(double purchaseQuantity) {
+        final double quantityNormalPrice = purchaseQuantity % priceSchema.getQuantity().getValue();
+        final double quantityDiscountedPrice = (purchaseQuantity - quantityNormalPrice) / priceSchema.getQuantity().getValue();
         return quantityNormalPrice * item.getPrice() + quantityDiscountedPrice * priceSchema.getPrice();
     }
 }
