@@ -46,9 +46,10 @@ public class SupermarketPricingTest extends TestCase {
         // 20 euro per Kilo, how much 150 grams?
         final double pricePerKilo = 15.99;
         final Price price = new Price(new Item(pricePerKilo), new PricePerQuantityUnit(
-                new Quantity(1),
+                new Quantity(1, WeightUnit.KILO),
                 pricePerKilo)
         );
+        // TODO PricePerQuantityUnit here could be refactored
         assertEquals(price.calculate(0.400), pricePerKilo * 0.400);
         assertEquals(price.calculate(0.413), pricePerKilo * 0.413);
     }
