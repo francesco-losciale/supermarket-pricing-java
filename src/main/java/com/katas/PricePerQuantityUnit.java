@@ -14,7 +14,7 @@ package com.katas;
 public class PricePerQuantityUnit implements PriceSchema {
 
 private final Quantity quantity;
-    private final double price;
+    private double price;
 
     public PricePerQuantityUnit(Quantity quantity, double price) {
         this.quantity = quantity;

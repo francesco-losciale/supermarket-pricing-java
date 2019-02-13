@@ -24,14 +24,13 @@ public class SupermarketPricingTest extends TestCase {
         // !! this is a different scenario, you are not buying thow to get one free,
         // !! but you're actually buying two and "surprisingly" getting one free.
         final double normalItemPrice = 15.99;
-        final Price price = new Price(new Item(normalItemPrice), new QuantityFreePerQuantity(2, 1, normalItemPrice));
+        final Price price = new Price(new Item(normalItemPrice), WeightUnit.GRAM, new QuantityFreePerQuantity(2, 1, normalItemPrice));
         // TODO throw exception if you buy 2 - you can get one free!
         assertEquals(price.calculate(3), normalItemPrice * 2);
         assertEquals(price.calculate(4), normalItemPrice * 2 + normalItemPrice);
         assertEquals(price.calculate(5), normalItemPrice * 2 + normalItemPrice * 2);
         // TODO throw exception if you buy 5 - you can get one free!
         assertEquals(price.calculate(6), normalItemPrice * 2 + normalItemPrice * 2);
-
     }
 
     @Test

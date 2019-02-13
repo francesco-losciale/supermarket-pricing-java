@@ -21,9 +21,9 @@ public class Price {
         this.priceSchema = priceSchema;
     }
 
-    public Price(Item item, QuantitySchema quantitySchema) {
+    public Price(Item item, Unit unit, QuantitySchema quantitySchema) {
         this(item, new PricePerQuantityUnit(
-                new Quantity(quantitySchema.getQuantity() + quantitySchema.getFreeQuantity(), WeightUnit.GRAM),
+                new Quantity(quantitySchema.getQuantity() + quantitySchema.getFreeQuantity(), unit),
                 item.getPrice() * quantitySchema.getQuantity()
                 )
         );
