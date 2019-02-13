@@ -10,7 +10,7 @@ public class SupermarketPricingTest extends TestCase {
     public void testSpecialPricingThreeForDollar() throws Exception {
         // three for a dollar, what is the price of 4 or 5?
         final double normalItemPrice = 15.99;
-        final Price price = new Price(new Item(normalItemPrice), new PricePerQuantityUnit(new Quantity(3, QuantityUnit.GRAM), 1.0));
+        final Price price = new Price(new Item(normalItemPrice), new PricePerQuantityUnit(new Quantity(3, WeightUnit.GRAM), 1.0));
         assertEquals(price.calculate(4), 1 + normalItemPrice);
         assertEquals(price.calculate(5), 1 + normalItemPrice * 2);
         assertEquals(price.calculate(6), 2D);
@@ -37,9 +37,9 @@ public class SupermarketPricingTest extends TestCase {
     @Test
     public void testQuantityOnScale() throws Exception {
         // Create an abstraction on Quantity from int to different measurement systems
-        assertEquals(quantity(1, QuantityUnit.KILO), quantity(1000, QuantityUnit.GRAM));
-        assertEquals(quantity(1, QuantityUnit.HECTO), quantity(100, QuantityUnit.GRAM));
-        assertEquals(quantity(1, QuantityUnit.KILO), quantity(10, QuantityUnit.HECTO));
+        assertEquals(quantity(1, WeightUnit.KILO), quantity(1000, WeightUnit.GRAM));
+        assertEquals(quantity(1, WeightUnit.HECTO), quantity(100, WeightUnit.GRAM));
+        assertEquals(quantity(1, WeightUnit.KILO), quantity(10, WeightUnit.HECTO));
     }
 
     @Test
@@ -49,15 +49,15 @@ public class SupermarketPricingTest extends TestCase {
         // TODO can you abstract refactoring the PricePerQuantity class?
         final double pricePerKilo = 15.99;
         final Price price = new Price(new Item(pricePerKilo), new PricePerQuantityUnit(
-                new Quantity(1, QuantityUnit.KILO),
+                new Quantity(1),
                 pricePerKilo)
         );
         assertEquals(price.calculate(0.400), pricePerKilo * 0.400);
         assertEquals(price.calculate(0.413), pricePerKilo * 0.413);
     }
 
-    private double quantity(int quantity, QuantityUnit quantityUnit) {
-        return new Quantity(quantity, quantityUnit).getValue();
+    private double quantity(int quantity, Unit unit) {
+        return new Quantity(quantity, unit).getValue();
     }
 
 }

@@ -23,7 +23,7 @@ public class Price {
 
     public Price(Item item, QuantitySchema quantitySchema) {
         this(item, new PricePerQuantityUnit(
-                new Quantity(quantitySchema.getQuantity() + quantitySchema.getFreeQuantity(), QuantityUnit.GRAM),
+                new Quantity(quantitySchema.getQuantity() + quantitySchema.getFreeQuantity(), WeightUnit.GRAM),
                 item.getPrice() * quantitySchema.getQuantity()
                 )
         );

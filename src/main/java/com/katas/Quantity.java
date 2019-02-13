@@ -14,14 +14,23 @@ package com.katas;
 public class Quantity {
 
     private final double quantity;
-    private final QuantityUnit quantityUnit;
+    private final Unit unit;
 
-    public Quantity(double quantity, QuantityUnit quantityUnit) {
+    public Quantity(double quantity) {
+        this.unit = null;
         this.quantity = quantity;
-        this.quantityUnit = quantityUnit;
+    }
+
+    public Quantity(double quantity, Unit unit) {
+        this.quantity = quantity;
+        this.unit = unit;
     }
 
     public double getValue() {
-        return quantity * quantityUnit.getMultiplier();
+        if (unit != null) {
+            return quantity * unit.getMultiplier();
+        } else {
+            return quantity;
+        }
     }
 }
