@@ -9,7 +9,7 @@ public class Unit {
         this.multiplier = multiplier;
     }
 
-    public double getMultiplier() {
-        return this.multiplier;
+    public double multiply(double quantity) {
+        return quantity * multiplier;
     }
 }

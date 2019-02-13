@@ -45,8 +45,6 @@ public class SupermarketPricingTest extends TestCase {
     @Test
     public void testSpecialPriceHectoPriceBasedOnKiloPrice() throws Exception {
         // 20 euro per Kilo, how much 150 grams?
-        // TODO create a new PricePerQuantityWithUnit which uses the class Quantity above instead of double quantity
-        // TODO can you abstract refactoring the PricePerQuantity class?
         final double pricePerKilo = 15.99;
         final Price price = new Price(new Item(pricePerKilo), new PricePerQuantityUnit(
                 new Quantity(1),

@@ -28,7 +28,7 @@ public class Quantity {
 
     public double getValue() {
         if (unit != null) {
-            return quantity * unit.getMultiplier();
+            return unit.multiply(quantity);
         } else {
             return quantity;
         }
