@@ -53,6 +53,9 @@ public class SupermarketPricingTest extends TestCase {
         assertEquals(price.calculate(0.413), pricePerKilo * 0.413);
     }
 
+    // TODO Look how you created Quantity(double quantity, Unit unit)! Actually a quantity is not associated to
+    // TODO only one unit, but more than one (ie. 1 kilo of pasta is associated to 10 hecto).
+    // TODO Actually the quantity has necessarily a unit initially to be created with.
     private double newQuantity(int quantity, Unit unit) {
         return new Quantity(quantity, unit).getValue();
     }
