@@ -9,7 +9,11 @@
  * program(s) have been supplied.
  *******************************************************************************
  *----------------------------------------------------------------------------*/
-package com.katas;
+package com.katas.model;
+
+import com.katas.schema.PricePerQuantityUnit;
+import com.katas.schema.PriceSchema;
+import com.katas.schema.QuantitySchema;
 
 public class Price {
 

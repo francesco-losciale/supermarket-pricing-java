@@ -1,4 +1,4 @@
-package com.katas;
+package com.katas.model;
 
 
 public class WeightUnit extends Unit {

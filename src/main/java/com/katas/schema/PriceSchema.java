@@ -9,10 +9,12 @@
  * program(s) have been supplied.
  *******************************************************************************
  *----------------------------------------------------------------------------*/
-package com.katas;
+package com.katas.schema;
 
-public interface QuantitySchema {
-    int getQuantity();
+import com.katas.model.Quantity;
 
-    int getFreeQuantity();
+public interface PriceSchema {
+    Quantity getQuantity();
+
+    double getPrice();
 }

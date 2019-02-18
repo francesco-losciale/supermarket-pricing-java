@@ -9,24 +9,25 @@
  * program(s) have been supplied.
  *******************************************************************************
  *----------------------------------------------------------------------------*/
-package com.katas;
+package com.katas.schema;
 
-public class QuantityFreePerQuantity implements QuantitySchema {
+import com.katas.model.Quantity;
 
-    private final int quantity;
-    private final int freeQuantity;
+public class PricePerQuantityUnit implements PriceSchema {
 
-    public QuantityFreePerQuantity(int quantity, int freeQuantity, double price) {
+private final Quantity quantity;
+    private double price;
+
+    public PricePerQuantityUnit(Quantity quantity, double price) {
         this.quantity = quantity;
-        this.freeQuantity = freeQuantity;
+        this.price = price;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public Quantity getQuantity() {
+        return this.quantity;
     }
 
-    public int getFreeQuantity() {
-        return freeQuantity;
+    public double getPrice() {
+        return this.price;
     }
-
 }

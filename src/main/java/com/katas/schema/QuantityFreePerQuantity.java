@@ -9,28 +9,24 @@
  * program(s) have been supplied.
  *******************************************************************************
  *----------------------------------------------------------------------------*/
-package com.katas;
+package com.katas.schema;
 
-public class Quantity {
+public class QuantityFreePerQuantity implements QuantitySchema {
 
-    private final double quantity;
-    private final Unit unit;
+    private final int quantity;
+    private final int freeQuantity;
 
-    public Quantity(double quantity) {
-        this.unit = null;
+    public QuantityFreePerQuantity(int quantity, int freeQuantity, double price) {
         this.quantity = quantity;
+        this.freeQuantity = freeQuantity;
     }
 
-    public Quantity(double quantity, Unit unit) {
-        this.quantity = quantity;
-        this.unit = unit;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public double getValue() {
-        if (unit != null) {
-            return unit.multiply(quantity);
-        } else {
-            return quantity;
-        }
+    public int getFreeQuantity() {
+        return freeQuantity;
     }
+
 }

@@ -9,17 +9,28 @@
  * program(s) have been supplied.
  *******************************************************************************
  *----------------------------------------------------------------------------*/
-package com.katas;
+package com.katas.model;
 
-public class Item {
+public class Quantity {
 
-    private double price;
+    private final double quantity;
+    private final Unit unit;
 
-    public Item(double price) {
-        this.price = price;
+    public Quantity(double quantity) {
+        this.unit = null;
+        this.quantity = quantity;
     }
 
-    public double getPrice() {
-        return price;
+    public Quantity(double quantity, Unit unit) {
+        this.quantity = quantity;
+        this.unit = unit;
+    }
+
+    public double getValue() {
+        if (unit != null) {
+            return unit.multiply(quantity);
+        } else {
+            return quantity;
+        }
     }
 }

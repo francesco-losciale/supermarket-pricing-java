@@ -9,23 +9,17 @@
  * program(s) have been supplied.
  *******************************************************************************
  *----------------------------------------------------------------------------*/
-package com.katas;
+package com.katas.model;
 
-public class PricePerQuantityUnit implements PriceSchema {
+public class Item {
 
-private final Quantity quantity;
     private double price;
 
-    public PricePerQuantityUnit(Quantity quantity, double price) {
-        this.quantity = quantity;
+    public Item(double price) {
         this.price = price;
     }
 
-    public Quantity getQuantity() {
-        return this.quantity;
-    }
-
     public double getPrice() {
-        return this.price;
+        return price;
     }
 }

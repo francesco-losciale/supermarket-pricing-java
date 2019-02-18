@@ -1,5 +1,11 @@
-package com.katas;
+package com.katas.schema.builder;
 
+
+import com.katas.model.Quantity;
+import com.katas.model.Unit;
+import com.katas.model.WeightUnit;
+import com.katas.schema.PricePerQuantityUnit;
+import com.katas.schema.PriceSchema;
 
 public class PriceSchemaBuilder {
 
@@ -9,7 +15,7 @@ public class PriceSchemaBuilder {
     private double quantityFree;
 
 
-    public PriceSchemaBuilder quantity(double quantity) {
+    public PriceSchemaBuilder withQuantity(double quantity) {
         this.quantity = quantity;
         return this;
     }
@@ -19,7 +25,7 @@ public class PriceSchemaBuilder {
         return this;
     }
 
-    public PriceSchemaBuilder price(double price) {
+    public PriceSchemaBuilder withPrice(double price) {
         this.price = price;
         return this;
     }
